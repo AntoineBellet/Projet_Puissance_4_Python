@@ -32,4 +32,18 @@ def jouer_un_jeton(grille, num_joueur, colonne):
             elif grille[elt][colonne]==0 and num_joueur==2:
                 grille[elt][colonne]= jetonj2
                 return True and affichage(grille)
-"""Pour jouer appeler la fonction jouer_un_jeton(grille, 1 ou 2, la colone souhaité(entre 0 et 6))"""
+
+def play_a_game(grille):
+    game = 'y'
+    compteur = 0
+    while game == 'y' :
+        game = input('Voulez-vous continuer ?')
+        compteur += 1
+        if game == 'y':
+            player = int(input('Quel joueur veut jouer ?'))
+            colone = int(input('quelle colone voulez-vous jouer ?'))
+            print(jouer_un_jeton(grille,player,colone))
+        else :
+            return('Game terminer !', compteur-1)
+        
+print(play_a_game(grille))
